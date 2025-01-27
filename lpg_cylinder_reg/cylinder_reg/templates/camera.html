@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>LPG Cylinder Number Scanner - Camera</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div id="camera-container">
+        <div id="video-container">
+            <video id="camera-feed" autoplay></video>
+            <div id="overlay"></div>
+            <div id="focus-box"></div>
+            <div id="loading" style="display: none;">
+                <span id="loading-text">Loading...</span>
+            </div>
+            <div id="error-div" style="display: none;">
+                <span id="error-text" style="color:red;"></span>
+            </div>
+        </div>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="capture-container">
+                <button id="captureButton" type="submit">Capture</button>
+            </div>
+        </form>
+    </div>
+    <script src="{% static 'js/camera_script.js' %}"></script>
+</body>
+</html>
